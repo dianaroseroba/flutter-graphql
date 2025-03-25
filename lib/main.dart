@@ -7,7 +7,7 @@ import 'package:app_graphql/controllers/film_controller.dart';
 import 'package:app_graphql/screens/home_screen.dart'; 
 
 void main() async {
-  // Inicializar Hive para GraphQL
+ 
   await initHiveForFlutter();
 
   runApp(MyApp());
@@ -18,9 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Inicializar el controlador de películas como un singleton global
-    Get.put(FilmController(GraphQLConfig.clientToQuery().value)); // Pasa el cliente GraphQL como argumento al controlador.
-
+    
+    Get.put(FilmController(GraphQLConfig.clientToQuery().value));
     return GraphQLProvider(
       client: GraphQLConfig.clientToQuery(), 
       child: GetMaterialApp(
